@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainScript : MonoBehaviour
 {
+    public float Blocks;
 
+    public float BlocksPerClick = .2f;
 
-    void Start()
+    public void BlockPress()
     {
-        
-    }
 
-    void Update()
-    {
-        
+        Debug.Log("Clicked");
+
+        Blocks += BlocksPerClick;
+
+        Debug.Log(Blocks);
     }
+    
 }
