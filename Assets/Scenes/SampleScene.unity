@@ -873,6 +873,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -1701,22 +1702,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Blocks: 0
-  BlocksPerClick: 0.2
+  BlocksPerClick: 1
   BlockNumTxt: {fileID: 723759229}
   SquareNumTxt: {fileID: 71114168}
   AutoBlocks: 0
   AutoStrength: 1
   AutoCost: 10
   AutoValue: 5
+  AutoStrengthCost: 25
   AutoNumTxt: {fileID: 739980261}
   BlockSecTxt: {fileID: 1112531410}
+  AutoStrengthTxt: {fileID: 0}
   AutoBlockList: []
   AutoDes: 0
   DesStrength: 1
   DesCost: 10
   DesValue: 5
+  DesStrengthCost: 25
   AutoDesTxt: {fileID: 1129929808}
   DesSecTxt: {fileID: 1528262996}
+  DesStremgthTxt: {fileID: 0}
   AutoDesList: []
   Money: 0
   MoneyTxt: {fileID: 1387683355}
@@ -1724,6 +1729,7 @@ MonoBehaviour:
   AutoValueTxt: {fileID: 731011140}
   DesCostTxt: {fileID: 1025523599}
   DesValueTxt: {fileID: 1064607266}
+  BlockValue: 10
 --- !u!1 &960524697
 GameObject:
   m_ObjectHideFlags: 0
@@ -1802,7 +1808,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -2168,7 +2173,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Build/Sec: 0'
+  m_text: 'Built/Sec: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2654,6 +2659,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4024724016737318806, guid: a66372dd1d593422b8112b249d65c3c5, type: 3}
@@ -2745,6 +2751,7 @@ PrefabInstance:
       value: Block
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: a66372dd1d593422b8112b249d65c3c5, type: 3}
 --- !u!1 &1387683353
 GameObject:
