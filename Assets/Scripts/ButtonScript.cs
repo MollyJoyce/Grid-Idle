@@ -60,8 +60,6 @@ public class ButtonScript : MonoBehaviour
 
         Blocks += BlocksPerClick;
 
-        Debug.Log(Blocks);
-
         BlockNumTxt.text = "Blocks: " + Blocks;
         //SquareNumTxt.text = "Squares: " + Blocks;
     }
@@ -89,7 +87,7 @@ public class ButtonScript : MonoBehaviour
             AutoBlockList.Add(Time.time);
 
             AutoCost = AutoCost * 2;
-            AutoValue = AutoCost / 2;
+            AutoValue = Mathf.Round(AutoCost / 3);
 
             Money -= AutoCost;
 
@@ -131,10 +129,10 @@ public class ButtonScript : MonoBehaviour
 
             AutoDesList.Add(Time.time);
 
-            DesCost = DesCost * 2;
-            DesValue = DesCost / 2;
-
             Money -= DesCost;
+
+            DesCost = DesCost * 2;
+            DesValue = Mathf.Round(DesCost / 3);
 
             MoneyTxt.text = "$" + Money;
 
@@ -213,15 +211,22 @@ public class ButtonScript : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < AutoDesList.Count; i++)
+
+        for (int j = 0; j < AutoDesList.Count; j++)
         {
-            if (Time.time - AutoBlockList[i] >= 1)
+
+            Debug.Log(j);
+
+            if (Time.time - AutoBlockList[j] >= 1)
             {
-                AutoDesList[i] = Time.time;
+                if(Blocks >= DesStrength)
+                AutoDesList[j] = Time.time;
 
                 Blocks -= DesStrength;
 
                 Money += BlockValue;
+
+                Debug.Log(Money);
 
                 MoneyTxt.text = "$" + Money;
 
