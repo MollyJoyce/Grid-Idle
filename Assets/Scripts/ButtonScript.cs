@@ -45,6 +45,7 @@ public class ButtonScript : MonoBehaviour
 
     public float Money;
     public TextMeshProUGUI MoneyTxt;
+    //public GameObject 
 
     public TextMeshProUGUI AutoCostTxt;
     public TextMeshProUGUI AutoValueTxt;
@@ -86,10 +87,10 @@ public class ButtonScript : MonoBehaviour
 
             AutoBlockList.Add(Time.time);
 
+            Money -= AutoCost;
+
             AutoCost = AutoCost * 2;
             AutoValue = Mathf.Round(AutoCost / 3);
-
-            Money -= AutoCost;
 
             MoneyTxt.text = "$" + Money;
 
@@ -199,6 +200,7 @@ public class ButtonScript : MonoBehaviour
 
     private void Update()
     {
+
         for(int i = 0; i < AutoBlockList.Count; i++)
         {
             if(Time.time - AutoBlockList[i] >= 1)
@@ -211,26 +213,30 @@ public class ButtonScript : MonoBehaviour
             }
         }
 
-
-        for (int j = 0; j < AutoDesList.Count; j++)
+        if (Blocks > 0)
         {
 
-            Debug.Log(j);
-
-            if (Time.time - AutoBlockList[j] >= 1)
+            for (int j = 0; j < AutoDesList.Count; j++)
             {
-                if(Blocks >= DesStrength)
-                AutoDesList[j] = Time.time;
 
-                Blocks -= DesStrength;
+                if (Time.time - AutoDesList[j] >= 1)
+                {
 
-                Money += BlockValue;
 
-                Debug.Log(Money);
 
-                MoneyTxt.text = "$" + Money;
+                    if (Blocks >= DesStrength)
+                        AutoDesList[j] = Time.time;
 
-                BlockNumTxt.text = "Blocks: " + Blocks;
+                    Blocks -= DesStrength;
+
+                    Money += BlockValue;
+
+                    Debug.Log(Money);
+
+                    MoneyTxt.text = "$" + Money;
+
+                    BlockNumTxt.text = "Blocks: " + Blocks;
+                }
             }
         }
     }
